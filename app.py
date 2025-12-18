@@ -216,8 +216,8 @@ def get_current_temp(nx: int, ny: int):
     _cache_ncst["data"] = temp
     return temp
 
-NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "")
-NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "")
+NAVER_CLIENT_ID = os.getenv("yGu4mKhgCyXJb19wvNqc", "")
+NAVER_CLIENT_SECRET = os.getenv("JBHSQzCtjD", "")
 
 def _strip_tags(s: str) -> str:
     return re.sub(r"<[^>]+>", "", s or "")
