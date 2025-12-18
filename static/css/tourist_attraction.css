@@ -1,0 +1,151 @@
+.ta-page{
+  width: min(1720px, calc(100% - 172px));
+  margin: 0 auto;
+  padding: 48px 0 120px;
+}
+
+/* 타이틀 */
+.ta-title{ margin-top: -20px; }
+.ta-sub{
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 24px;
+  color: #000;
+}
+.ta-main{
+  margin-top: 14px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 40px;
+  color: #000;
+}
+
+.i{
+  margin-top: -40px;
+}
+
+/* 섹션(카드) */
+.ta-section{
+  display: grid;
+  grid-template-columns: 860px 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: 70px 0;
+}
+
+.ta-image img{
+  width: 859px;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+
+/* 오른쪽 정보 */
+.ta-head{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.ta-name{
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0;
+  color: #000;
+}
+.ta-map{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border: 1px solid #559DD5;
+  border-radius: 5px;
+  color: #559DD5;
+  text-decoration: none;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.ta-tags{
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ta-tag{
+  background: #559DD5;
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 20px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.ta-desc{
+  margin-top: 26px;
+  width: 655px; /* 디자인 유지 */
+  max-width: 100%;
+  color: #434343;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+/* 메타 */
+.ta-meta{
+  margin-top: 30px;
+  display: grid;
+  gap: 14px;
+}
+.ta-row{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: start;
+  gap: 12px;
+}
+.ta-key{
+  color: #559DD5;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.ta-val{
+  color: #434343;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* 추천 활동 */
+.ta-activity{ margin-top: 40px; }
+.ta-key2{
+  color: #559DD5;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38.4px;
+}
+.ta-list{
+  margin: 12px 0 0;
+  padding-left: 22px;
+  color: #434343;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38.4px;
+}
+
+/* 반응형(필요 최소) */
+@media (max-width: 1200px){
+  .ta-section{
+    grid-template-columns: 1fr;
+  }
+  .ta-image img{
+    width: 100%;
+    height: auto;
+  }
+  .ta-name{ font-size: 36px; line-height: 36px; }
+  .ta-map{ font-size: 18px; line-height: 18px; }
+}

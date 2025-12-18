@@ -1,0 +1,301 @@
+/* =========================
+   0) Base Reset
+========================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.scale-wrap {
+  --design-w: 1920px;
+  --design-h: 1867px;
+
+  /* ✅ 화면 폭에 맞춘 스케일 (1920보다 커지면 1 유지) */
+  --scale: min(1, calc(100vw / var(--design-w)));
+
+  width: 100%;
+  height: calc(var(--design-h) * var(--scale));
+  overflow: hidden;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.scale-wrap .design-1920{
+  transform: scale(var(--scale)) translateY(-100px);
+  transform-origin: top left;
+}
+
+.design-1920{
+  width: var(--design-w);
+  height: var(--design-h);
+  position: relative;
+  background: #fff;
+
+  transform: scale(var(--scale));
+  transform-origin: top left;
+}
+
+/* =========================
+   2) Common Styles
+========================= */
+.poster {
+  position: absolute;
+  width: 467px;
+  height: 679px;
+  box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+}
+
+.poster-caption {
+  position: absolute;
+  color: #434343;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.page-title {
+  position: absolute;
+  text-align: center;
+  color: #000;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.event-box {
+  position: absolute;
+  background: #fff;
+  border-radius: 15px;
+  border: 2px solid #559DD5;
+}
+
+.event-title {
+  position: absolute;
+  color: #000;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.event-loc,
+.event-date {
+  position: absolute;
+  color: #8E8E8E;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.event-thumb {
+  position: absolute;
+  width: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  width: 110px;
+  height: 39px;
+  padding: 10px;
+  background: #559DD5;
+  border-radius: 53px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* =========================
+   3) Absolute Position Mapping
+   - 너가 준 좌표/사이즈 그대로 옮김
+========================= */
+
+/* Posters */
+.poster-1 { left: 149px; top: 219px; }
+.poster-2 { left: 727px; top: 219px; box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.30); }
+.poster-3 { left: 1305px; top: 219px; box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.30); }
+
+/* Title */
+.page-title { left: 756px; top: 123px; }
+
+/* Poster captions */
+.caption-1 { left: 306px; top: 921px; }
+.caption-2 { left: 857px; top: 921px; text-align: center; }
+.caption-3 { left: 1475px; top: 921px; text-align: center; }
+
+/* Event boxes */
+.box-1 { width: 812px; height: 336px; left: 134px; top: 1058px; }
+.box-2 { width: 812px; height: 336px; left: 134px; top: 1421px; }
+.box-3 { width: 813px; height: 336px; left: 972px; top: 1058px; }
+.box-4 { width: 813px; height: 336px; left: 972px; top: 1421px; }
+
+/* Event 1 */
+.badge-1 { left: 168px; top: 1087px; }
+.title-1 { left: 168px; top: 1170px; width: 350px; height: 35px; }
+.loc-1   { left: 168px; top: 1236px; width: 350px; height: 25px; }
+.date-1  { left: 168px; top: 1271px; width: 300px; height: 26px; }
+.thumb-1 { left: 723px; top: 1080px; height: 291px; }
+
+/* Event 2 */
+.badge-2 { left: 1006px; top: 1087px; }
+.title-2 { left: 1006px; top: 1170px; width: 500px; height: 35px; }
+.loc-2   { left: 1006px; top: 1236px; width: 350px; height: 25px; }
+.date-2  { left: 1006px; top: 1271px; width: 330px; height: 26px; }
+.thumb-2 { left: 1563px; top: 1080px; height: 291px; }
+
+/* Event 3 */
+.badge-3 { left: 168px; top: 1450px; height: 38px; }
+.title-3 { left: 168px; top: 1532px; width: 350px; height: 34px; }
+.loc-3   { left: 168px; top: 1599px; width: 350px; height: 24px; }
+.date-3  { left: 168px; top: 1635px; width: 329px; height: 24px; }
+.thumb-3 { left: 723px; top: 1443px; height: 290px; }
+
+/* Event 4 */
+.badge-4 { left: 1006px; top: 1450px; height: 38px; }
+.title-4 { left: 1006px; top: 1532px; width: 350px; height: 34px; }
+.loc-4   { left: 1006px; top: 1599px; width: 350px; height: 24px; }
+.date-4  { left: 1006px; top: 1635px; width: 330px; height: 24px; }
+.thumb-4 { left: 1563px; top: 1443px; height: 290px; }
+
+
+/* ✅ 포스터 이미지 전환 모션 */
+.poster {
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+/* 열릴 때 잠깐 강조(줌) */
+.poster.poster-anim {
+  animation: posterPop 260ms ease;
+}
+
+@keyframes posterPop {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* ✅ 오버레이 페이드/업 모션 */
+.poster-overlay {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.poster-overlay.is-open {
+  display: block; /* 기존대로 */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 연속 클릭해도 애니 재생되도록 클래스용 */
+.poster-overlay.overlay-anim {
+  animation: overlayIn 240ms ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   ✅ 포스터 오버레이(텍스트) 기본 스타일
+========================= */
+.poster-overlay{
+  position: absolute;
+  width: 467px;
+  height: 679px;
+  display: none;                 /* 기본 숨김 */
+  background: rgba(0,0,0,0.60);
+  box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.25);
+  border-radius: 0px;
+  padding: 24px 22px;
+  color: #fff;
+  z-index: 30;                   /* 포스터 위 */
+}
+
+/* 오버레이 위치 = 포스터 위치와 동일 */
+.overlay-1{ left: 149px; top: 219px; }
+.overlay-2{ left: 727px; top: 219px; }
+.overlay-3{ left: 1305px; top: 219px; }
+
+/* 오버레이 텍스트 스타일 */
+.overlay-title{
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 36px;
+  text-align: center;
+  margin-top: 85px;              /* 너 시안 느낌 맞추기 */
+  margin-bottom: 40px;
+}
+
+.overlay-body{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.overlay-block{
+  margin: 18px 0;
+}
+
+.overlay-block b{
+  font-size: 24px;
+  line-height: 33px;
+}
+
+/* =========================
+   ✅ 모션(요청했던 것 동일)
+========================= */
+
+/* 포스터 이미지 전환 모션 */
+.poster{
+  transition: transform 220ms ease, filter 220ms ease;
+}
+.poster.poster-anim{
+  animation: posterPop 260ms ease;
+}
+@keyframes posterPop{
+  0% { transform: scale(1); }
+  60% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* 오버레이 페이드/업 모션 */
+.poster-overlay{
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+.poster-overlay.is-open{
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.poster-overlay.overlay-anim{
+  animation: overlayIn 240ms ease;
+}
+@keyframes overlayIn{
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

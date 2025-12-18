@@ -1,0 +1,96 @@
+{% extends "index.html" %}
+
+{% block title %}핫플 구경하러 가기{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/course_walk.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="scale-wrap">
+  <div class="design-1920">
+
+    <div class="walk-sub">트렌디한 거리와 쇼핑, 맛집, 카페가 모여 있는 지역</div>
+    <div class="walk-title">핫플 구경하러 가기</div>
+
+    <div class="info-card"></div>
+    <div id="cardTitle" class="info-title">해운대 미포–해월전망대 해안 산책길</div>
+    <img id="cardImg" class="info-img"
+      src="{{ url_for('static', filename='img/walk/산책-해운대 1.png') }}"
+      alt="코스 이미지" />
+    <div id="cardAddr" class="info-addr">부산 해운대구 달맞이길62번길 13</div>
+    <div id="cardTrans" class="info-trans">중동역에서 걸어서 18분</div>
+    <div id="cardDesc" class="info-desc">
+      넓게 펼쳐진 바다를 옆에 두고 나무 데크길을 따라 걸을 수 있는 부산 대표 산책 코스. 파도 소리와 바람을 느끼며 천천히 걷기 좋아 여행객들이 가장 많이 찾는 힐링 루트.
+    </div>
+
+    <div class="search-bar" role="search" aria-label="핫플 지역 검색">
+      <img class="search-icon" 
+        src="{{ url_for('static', filename='img/walk/Group 164.png') }}" 
+        alt="검색 아이콘"
+        /> <input id="regionSearch" class="search-input" type="text"
+        placeholder="핫플 구경하고 싶은 지역명 검색" autocomplete="off"
+        /> 
+    </div>
+
+    <div id="searchResults" class="search-results" hidden>
+      <div class="results-head">
+        <div class="results-title">검색 결과</div>
+        <div id="resultsQuery" class="results-query"></div>\
+     </div>
+     <div id="resultsList" class="results-list"></div>
+    </div>
+    
+    <div id="mapWrap" class="map-wrap">
+      <div id="mapContainer"
+        class="busan-map"
+        data-svg-url="{{ url_for('static', filename='img/map/busan_map.svg') }}"
+        aria-label="부산 지도"></div>
+
+      <div id="tooltip" class="tooltip" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <!-- ✅ 삽입 확인용 (나중에 지워도 됨) -->
+  <script>console.log("✅ course_walk template scripts block OK");</script>
+
+  <script>
+    window.WALK_COURSES = {
+      "부산진구": {
+        title: "전포 카페거리",
+        img: "{{ url_for('static', filename='img/walk/카페거리.png') }}",
+        addr: "부산 부산진구 전포동 일대",
+        trans: "전포역에서 걸어서 5분",
+        desc: "개성 있는 카페와 편집숍이 골목마다 이어지는 부산 대표 트렌드 거리. 낮에는 카페 투어, 밤에는 분위기 있는 골목 구경이 가능해 요즘 가장 많이 찾는 감성 핫플 구경 코스."
+      },
+      "해운대구": {
+        title: "해운대 구남로·해변로 일대",
+        img: "{{ url_for('static', filename='img/walk/구남로.png') }}",
+        addr: "부산 해운대구 해운대해변로 일대",
+        trans: "해운대역에서 걸어서 5분",
+        desc: "해운대 해수욕장 앞을 따라 카페, 맛집, 술집이 모여 있는 해운대의 중심 거리. 낮에는 바다 분위기를, 밤에는 활기찬 상권 분위기를 함께 즐길 수 있는 대표 해운대 핫플 코스."
+      },
+      "동래구": {
+        title: "온천천 카페거리",
+        img: "{{ url_for('static', filename='img/walk/온천천 카페거리.png') }}",
+        addr: "부산 동래구 온천천로 일대",
+        trans: "명륜역에서 걸어서 8분",
+        desc: "절벽과 숲길이 자연스럽게 이어지고, 중간마다 탁 트인 바다 전망이 펼쳐지는 남구의 대표 해안길. 비교적 조용하고 자연적인 분위기 속에서 부산의 원시 해안선을 가까이서 감상할 수 있는 여유로운 트레킹 코스."
+      },
+      "중구": {
+        title: "남포동 BIFF거리",
+        img: "{{ url_for('static', filename='img/walk/BIFF.png') }}",
+        addr: "부산 중구 남포동 일대",
+        trans: "자갈치역에서 걸어서 5분",
+        desc: "먹거리와 쇼핑, 거리 분위기가 한곳에 모인 부산 원도심 대표 거리. 사람 구경하며 걷기 좋고, 밤이 되면 더욱 활기가 살아나는 도심 핫플 코스."
+      }
+    };
+  </script>
+
+  <script defer src="{{ url_for('static', filename='js/course_hotplace.js') }}"></script>
+{% endblock %}
