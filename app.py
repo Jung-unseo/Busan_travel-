@@ -6,6 +6,8 @@ from zoneinfo import ZoneInfo
 from urllib.parse import unquote
 import os, re
 from flask import jsonify
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask("Busan_travel")
 
@@ -216,8 +218,8 @@ def get_current_temp(nx: int, ny: int):
     _cache_ncst["data"] = temp
     return temp
 
-NAVER_CLIENT_ID = os.getenv("yGu4mKhgCyXJb19wvNqc", "")
-NAVER_CLIENT_SECRET = os.getenv("JBHSQzCtjD", "")
+NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "")
+NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "")
 
 def _strip_tags(s: str) -> str:
     return re.sub(r"<[^>]+>", "", s or "")
